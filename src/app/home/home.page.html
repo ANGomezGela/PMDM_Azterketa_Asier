@@ -3,8 +3,11 @@
 <ion-content [fullscreen]="true">
   <!-- Irakurri galdetegiko galdera guztiak-->
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let pregunta of Berriak; let i = index">
+      
       <!-- logotipoa gehitu -->
+      <img slot ="start" [src]="pregunta.logotipo">
+      <a slot = "end" (click)="presentAlert(i)">RESPONDER</a>
       <!-- ion-badge gehitu galdera asmatzekotan, saiakera zenbatzailea eta erakutsi okerrak izan diren saiakera kopurua
       -- 1-Asmatzen bada: "success" kolorea jarri eta erakutsi pantailako eskuineko partean (slot)
       -- 2-Akatsa bada: "danger" kolorea jarri eta erakutsi pantailaren eskuineko partean (slot)
@@ -15,6 +18,8 @@
 
     </ion-item>
   </ion-list>
+  <ion-item>
+    <a class="align-text-center">GUARDAR CUESTIONARIO</a>
+  </ion-item>
   <!--Galdetagiaren botoia gehitu-->
-
 </ion-content>
